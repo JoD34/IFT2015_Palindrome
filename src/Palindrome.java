@@ -1,4 +1,9 @@
 public class Palindrome {
+    /**
+     * Détermine si un mo est un palindrome.
+     * @param input Chaîne de caractère.
+     * @return (boolean) true si la chaîne de caractère est un palindrome.
+     */
     public static boolean checker(String input){
         String lookUp = "";
         for(int i = input.length()-1; i>=0;i--) {
@@ -7,6 +12,11 @@ public class Palindrome {
         return input.equals(lookUp);
     }
 
+    /**
+     * Fonction récursive déterminant s'il s'agit d'un palindrome.
+     * @param input Chaîne de caractère.
+     * @return (boolean) true si la chaîne de caractère est un palindrome.
+     */
     public static boolean checker_recursive(String input){
         int len = input.length()-1;
         if (len<=0) return true;
@@ -15,6 +25,11 @@ public class Palindrome {
         return isSame && checker_recursive(getSubString(input, 1, len));
     }
 
+    /**
+     * Inverse les lettres d'un mot et le renvoie.
+     * @param input chaîne de caractère (ou mot).
+     * @return (String) le mot en entrée inversé.
+     */
     public static String reverse(String input){
         String reverseWord = "";
         for(int i = input.length()-1; i>=0; i--) {
@@ -22,52 +37,42 @@ public class Palindrome {
         }
         return reverseWord;
     }
+
+    /**
+     * Transformation d'un mot en palindrome de façon naïve.
+     * @param input (String) mot.
+     * @return un mot palindrome.
+     */
     public static String transforme_palindrome(String input){
         if(checker(input))return input;
         String rev = reverse(input);
         return input.concat(rev);
     }
+
+    /**
+     * Transformé un mot en un palindrome compacté.
+     * @param input (String) mot.
+     * @return mot transformé en palindrome de façon compacte.
+     */
     public static String transforme_palindrome_compacte(String input) {
-        int len = input.length(), n=0;
+        int len = input.length(), n = 0;
+        String addString = "";
         for (int i = 0; i <= len - 1; i++) {
             String potentialPalin = getSubString(input, i, len);
-            if (!checker(potentialPalin)) continue;
-            n = i;
-            break;
-        }
-        return input += reverse(getSubString(input, 0, n));
-    }
-        /*
-        if(checker(input)) return input;
-
-        int n = 0, l = input.length()-1;
-        boolean foundIt = false;
-
-        for (int i = 0; i<=l; i++){
-            if(input.charAt(i) == input.charAt(l)){
-                n = i;
-
-                for (int j = l; j>=i ; j--){
-                    if(input.charAt(i) != input.charAt(j)){
-                        i = n + 1;
-                        break;
-                    }
-                    if(j - i <= 1){
-                        foundIt = true;
-                        break;
-                    }
-                    i++;
-                }
+            if (checker(potentialPalin)) {
+                addString = reverse(getSubString(input, 0, n));
             }
-            if (foundIt) break;
         }
+        return input + addString;
+    }
 
-        if(n!=0) {input += reverse(getSubString(input,0,n));}
-        else{input+=reverse(input);}
-        return input;
-        }
-         */
-
+    /**
+     * Obtenir une sous chaîne de caractère d'une chaîne principale.
+     * @param s: chaîne de caractère principale.
+     * @param beg: index de départ de la sous chaîne de caractère.
+     * @param end: index de fin de la sous chaîne de caractère.
+     * @return (String) sous chaîne de caractère.
+     */
     public static String getSubString(String s, int beg, int end) {
         String res = "";
         for (int i = beg; i < end; i++){
