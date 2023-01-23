@@ -12,7 +12,7 @@ public class Palindrome {
         if (len<=0) return true;
 
         boolean isSame = input.charAt(0) == input.charAt(len);
-        return isSame && checker_recursive(input.substring(1,len));
+        return isSame && checker_recursive(getSubString(input, 1, len));
     }
 
     public static String reverse(String input){
@@ -41,7 +41,7 @@ public class Palindrome {
                         i = n + 1;
                         break;
                     }
-                    if(j-i<=1){
+                    if(j - i <= 1){
                         foundIt = true;
                         break;
                     }
@@ -54,5 +54,13 @@ public class Palindrome {
         if(n!=0) {for (int k = n-1; k >= 0; k--) {input += input.charAt(k);}}
         else{input+=reverse(input);}
         return input;
+    }
+
+    public static String getSubString(String s, int beg, int end) {
+        String res = "";
+        for (int i = beg; i < end; i++){
+            res += s.charAt(i);
+        }
+        return res;
     }
 }
