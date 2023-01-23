@@ -2,7 +2,7 @@ public class Palindrome {
     public static boolean checker(String input){
         String lookUp = "";
         for(int i = input.length()-1; i>=0;i--) {
-            lookUp += (char)input.charAt(i);
+            lookUp += input.charAt(i);
         }
         return input.equals(lookUp);
     }
@@ -10,6 +10,7 @@ public class Palindrome {
     public static boolean checker_recursive(String input){
         int len = input.length()-1;
         if (len<=0) return true;
+
         boolean isSame = input.charAt(0) == input.charAt(len);
         return isSame && checker_recursive(input.substring(1,len));
     }
@@ -40,7 +41,7 @@ public class Palindrome {
                         i = n + 1;
                         break;
                     }
-                    if(i==j){
+                    if(j-i<=1){
                         foundIt = true;
                         break;
                     }
