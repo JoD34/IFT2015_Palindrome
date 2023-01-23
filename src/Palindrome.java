@@ -27,8 +27,19 @@ public class Palindrome {
         String rev = reverse(input);
         return input.concat(rev);
     }
-    public static String transforme_palindrome_compacte(String input){
+    public static String transforme_palindrome_compacte(String input) {
+        int len = input.length(), n=0;
+        for (int i = 0; i <= len - 1; i++) {
+            String potentialPalin = getSubString(input, i, len);
+            if (!checker(potentialPalin)) continue;
+            n = i;
+            break;
+        }
+        return input += reverse(getSubString(input, 0, n));
+    }
+        /*
         if(checker(input)) return input;
+
         int n = 0, l = input.length()-1;
         boolean foundIt = false;
 
@@ -51,10 +62,11 @@ public class Palindrome {
             if (foundIt) break;
         }
 
-        if(n!=0) {for (int k = n-1; k >= 0; k--) {input += input.charAt(k);}}
+        if(n!=0) {input += reverse(getSubString(input,0,n));}
         else{input+=reverse(input);}
         return input;
-    }
+        }
+         */
 
     public static String getSubString(String s, int beg, int end) {
         String res = "";
