@@ -20,7 +20,6 @@ public class Palindrome {
     public static boolean checker_recursive(String input){
         int len = input.length()-1;
         if (len<=0) return true;
-
         boolean isSame = input.charAt(0) == input.charAt(len);
         return isSame && checker_recursive(getSubString(input, 1, len));
     }
@@ -44,7 +43,7 @@ public class Palindrome {
      * @return un mot palindrome.
      */
     public static String transforme_palindrome(String input){
-        if(checker(input))return input;
+        if(checker(input)) return input;
         String rev = reverse(input);
         return input.concat(rev);
     }
