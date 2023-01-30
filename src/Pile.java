@@ -44,13 +44,6 @@ public class Pile {
         return popElem;
     }
 
-    public int length() {
-        int count = 0;
-        for (int i : this.maPile) {
-            count += 1;
-        }
-        return count;
-
-    }
+    public int length() { return this.maPile.length;}
 }
 

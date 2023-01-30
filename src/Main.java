@@ -6,7 +6,8 @@ public class Main {
          * Création des variables tests
          */
 
-        Pile pile = new Pile();
+        int[] newPile = new int[4];
+        System.out.println(newPile.length);
 
         String p = "patate";
         String q = "ana";
