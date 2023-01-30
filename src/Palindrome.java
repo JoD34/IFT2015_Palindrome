@@ -5,11 +5,14 @@ public class Palindrome {
      * @return (boolean) true si la chaîne de caractère est un palindrome.
      */
     public static boolean checker(String input){
-        String lookUp = "";
-        for(int i = input.length()-1; i>=0;i--) {
-            lookUp += input.charAt(i);
+        int len = input.length()-1;
+        if (len<=0) return true;
+        int IterLen = (input.length()-1)/2;
+
+        for(int i=0; i <= IterLen;i++){
+            if (input.charAt(i) != input.charAt(len-i))return false;
         }
-        return input.equals(lookUp);
+        return true;
     }
 
     /**
@@ -54,12 +57,13 @@ public class Palindrome {
      * @return mot transformé en palindrome de façon compacte.
      */
     public static String transforme_palindrome_compacte(String input) {
-        int len = input.length(), n = 0;
+        int len = input.length();
         String addString = "";
-        for (int i = 0; i <= len - 1; i++) {
-            String potentialPalin = getSubString(input, i, len);
-            if (checker(potentialPalin)) {
-                addString = reverse(getSubString(input, 0, n));
+        for (int i = 0; i <= len-1; i++) {
+            String potentialPal = getSubString(input, i, len);
+            if (checker(potentialPal)) {
+                addString = reverse(getSubString(input, 0, i));
+                break;
             }
         }
         return input + addString;
