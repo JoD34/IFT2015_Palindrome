@@ -5,6 +5,9 @@ public class Main {
         /*
          * Création des variables tests
          */
+
+        Pile pile = new Pile();
+
         String p = "patate";
         String q = "ana";
         String r = "qwere";
