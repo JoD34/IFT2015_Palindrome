@@ -16,9 +16,6 @@ public class Pile {
     public void push(int elem) {
 
         if (this.maPile.length == MAX_LENGTH) return;
-        ///////// VERIF SI ON DOIT AJOUTER A UNE NOUVELLE PILE OU JUSTE PAS AJOUTER ET RIEN FAIRE
-
-        // metttre new Pile au lieu de int[]???
         int[] newPile = new int[this.maPile.length + 1];
 
         for (int i = 0; i < this.maPile.length; i++) {

@@ -5,12 +5,20 @@ public class Palindrome {
      * @return (boolean) true si la chaîne de caractère est un palindrome.
      */
     public static boolean checker(String input){
-        int len = input.length()-1;
-        if (len<=0) return true;
-        int IterLen = (input.length()-1)/2;
 
-        for(int i=0; i <= IterLen;i++){
-            if (input.charAt(i) != input.charAt(len-i))return false;
+        int len = input.length()-1, IterLen = len/2;
+        if (len <= 0) return true;
+
+        for(int i = 0; i <= IterLen; i++){
+            char inst = input.charAt(i);
+            char instEnd = input.charAt(len);
+            if(inst == ' ') continue;
+            else if (instEnd == ' ') {
+                len--;
+                instEnd = input.charAt(len);
+            }
+            if (inst != instEnd )return false;
+            len--;
         }
         return true;
     }

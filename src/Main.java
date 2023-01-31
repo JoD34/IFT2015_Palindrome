@@ -6,20 +6,20 @@ public class Main {
          * Création des variables tests
          */
 
-        int[] newPile = new int[4];
-        System.out.println(newPile.length);
-
         String p = "patate";
         String q = "ana";
         String r = "qwere";
         String s = "qrelle";
+        String t = "esope reste ici et se repose";
         /*
          * Tester pour la fonction checker
          */
         System.out.println("Tests pour la fonction 'checker':");
         System.out.println(p + " -> " + Palindrome.checker(p));
         System.out.println(q + " -> " + Palindrome.checker(q));
-        System.out.println(s + " -> " + Palindrome.checker(s)+"\n");
+        System.out.println(s + " -> " + Palindrome.checker(s));
+        System.out.println(t + " -> " + Palindrome.checker(t)+"\n");
+
         /*
           Tester pour la fonction checker_recursive
          */
