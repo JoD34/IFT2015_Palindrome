@@ -7,16 +7,17 @@ public class Palindrome {
     public static boolean checker(String input){
 
         int len = input.length()-1, IterLen = len/2;
-        if (len <= 0) return true;
+        if (len == 0) return true;
 
         for(int i = 0; i <= IterLen; i++){
             char inst = input.charAt(i);
             char instEnd = input.charAt(len);
             if(inst == ' ') continue;
-            else if (instEnd == ' ') {
+            while(instEnd == ' ') {
                 len--;
                 instEnd = input.charAt(len);
             }
+
             if (inst != instEnd )return false;
             len--;
         }
@@ -29,10 +30,17 @@ public class Palindrome {
      * @return (boolean) true si la chaîne de caractère est un palindrome.
      */
     public static boolean checker_recursive(String input){
-        int len = input.length()-1;
-        if (len<=0) return true;
-        boolean isSame = input.charAt(0) == input.charAt(len);
-        return isSame && checker_recursive(getSubString(input, 1, len));
+        int len = input.length() - 1;
+        if (len <= 0) return true;
+
+        int i = 0;
+        int j = input.charAt(i);
+        int k = input.charAt(len);
+
+        while (j == ' ') i++;
+        while (k == ' ') len--;
+
+        return (j == k) && checker_recursive(getSubString(input, j++, len));
     }
 
     /**
@@ -68,8 +76,9 @@ public class Palindrome {
         int len = input.length();
         String addString = "";
         for (int i = 0; i <= len-1; i++) {
-            String potentialPal = getSubString(input, i, len);
-            if (checker(potentialPal)) {
+            while(input.charAt(i) == ' ') i++;
+            String potPal = getSubString(input, i, len);
+            if (checker(potPal)) {
                 addString = reverse(getSubString(input, 0, i));
                 break;
             }
