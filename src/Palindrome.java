@@ -51,7 +51,7 @@ public class Palindrome {
     public static String reverse(String input){
         String reverseWord = "";
         for(int i = input.length()-1; i>=0; i--) {
-            reverseWord += (char)input.charAt(i);
+            reverseWord += input.charAt(i);
         }
         return reverseWord;
     }

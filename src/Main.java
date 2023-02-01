@@ -4,7 +4,6 @@ public class Main {
         /*
          * Création des variables tests
          */
-
         String p = "patate";
         String q = "ana";
         String r = "qwere";
@@ -84,7 +83,6 @@ public class Main {
         }
         //System.out.println("Debut de pileTest");
         //pileTest.print();
-        pileTest.pop();
         pileTest.push(5);
         //pileTest.print();
 

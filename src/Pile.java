@@ -3,20 +3,18 @@ public class Pile {
     public final int MAX_LENGTH = 100;
     public int[] maPile = new int[MAX_LENGTH];
     public int longueur;
-
     public Pile() {}
-
     /**
      * Ajoute un élément à la pile.
      * @param elem Un entier.
      */
     public void push(int elem) {
-        if (this.longueur >= 100) {
+        try {
+            this.maPile[this.longueur] = elem;
+            this.longueur++;
+        } catch (IndexOutOfBoundsException e){
             System.out.println("L'élément " + elem + " n'a pu être ajouté, car la pile est pleine.");
-            return;
         }
-        this.maPile[this.longueur] = elem;
-        this.longueur++;
     }
 
     /**
