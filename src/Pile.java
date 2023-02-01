@@ -4,7 +4,6 @@ public class Pile {
     public int[] maPile = new int[MAX_LENGTH];
     public int longueur;
 
-    // Constructeurs
     public Pile() {}
 
     /**

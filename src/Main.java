@@ -75,18 +75,29 @@ public class Main {
         pile.pop();
         pile.push(7);
 
-        System.out.println(pile.pop());
-        System.out.println("La longueur est de " + pile.length());
-        pile.print();
+        //System.out.println(pile.pop());
+        //System.out.println("La longueur est de " + pile.length());
+        //pile.print();
         Pile pileTest = new Pile();
         for (int i=0; i<100; i++) {
             pileTest.push(i);
         }
-        System.out.println("Debut de pileTest");
-        pileTest.print();
+        //System.out.println("Debut de pileTest");
+        //pileTest.print();
         pileTest.pop();
         pileTest.push(5);
-        pileTest.print();
+        //pileTest.print();
+
+        Double_pile db = new Double_pile();
+        db.push(true, 6);
+        db.print();
+        db.push(false, 54);
+        db.pop(true);
+        db.push(false, 64);
+        db.print();
+        System.out.println(db.length(false));
+        System.out.println(db.full());
+        System.out.println(db.top(false));
 
     }
 }
