@@ -1,46 +1,56 @@
 public class Pile {
 
-    // Attributs
-    public int[] maPile;
     public final int MAX_LENGTH = 100;
+    public int[] maPile = new int[MAX_LENGTH];
+    public int longueur;
 
     // Constructeurs
-    public Pile() {
-    }
+    public Pile() {}
 
-    public Pile(int[] maPile) {
-        this.maPile = maPile;
-    }
-
-    // Methodes
+    /**
+     * Ajoute un élément à la pile.
+     * @param elem Un entier.
+     */
     public void push(int elem) {
-
-        if (this.maPile.length == MAX_LENGTH) return;
-        int[] newPile = new int[this.maPile.length + 1];
-
-        for (int i = 0; i < this.maPile.length; i++) {
-            newPile[i] = this.maPile[i];
+        if (this.longueur >= 100) {
+            System.out.println("L'élément " + elem + " n'a pu être ajouté, car la pile est pleine.");
+            return;
         }
-        newPile[this.maPile.length + 1] = elem;
-
-        this.maPile = newPile;
+        this.maPile[this.longueur] = elem;
+        this.longueur++;
     }
 
-    public int top() {
-        return this.maPile[this.maPile.length - 1];
-    }
+    /**
+     * Détermine l'élément sur le dessus de la pile.
+     * @return l'élément (entier) sur la pile.
+     */
+    public int top() { return this.maPile[this.longueur - 1]; }
 
+    /**
+     * Retire l'élément sur le dessus de la pile.
+     * @return l'élément (entier) éliminé.
+     */
     public int pop() {
+        int popElem = this.maPile[this.longueur - 1];
+        this.maPile[this.longueur - 1] = 0;
+        this.longueur--;
 
-        int[] newPile = new int[this.maPile.length - 1];
-        int popElem = this.maPile[this.maPile.length - 1];
-        for (int i=0; i<this.maPile.length-1; i++) {
-            newPile[i] = this.maPile[i];
-        }
-        this.maPile = newPile;
         return popElem;
     }
 
-    public int length() { return this.maPile.length;}
+    /**
+     * Évalue la longueur de la pile.
+     * @return la longueur (entier) de la pile.
+     */
+    public int length() { return this.longueur; }
+
+    /**
+     * Fait afficher le contenu de la pile.
+     */
+    public void print() {
+        for (int i : maPile) {
+            System.out.println(i);
+        }
+    }
 }
 

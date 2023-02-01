@@ -63,5 +63,30 @@ public class Main {
         System.out.println(t + " -> " + Palindrome.transforme_palindrome_compacte(t));
         System.out.println(u + " -> " + Palindrome.transforme_palindrome_compacte(u));
         System.out.println(v + " -> " + Palindrome.transforme_palindrome_compacte(v));
+
+        /*
+        *
+        *
+        * */
+        Pile pile = new Pile();
+        pile.push(4);
+        pile.push(5);
+        pile.push(6);
+        pile.pop();
+        pile.push(7);
+
+        System.out.println(pile.pop());
+        System.out.println("La longueur est de " + pile.length());
+        pile.print();
+        Pile pileTest = new Pile();
+        for (int i=0; i<100; i++) {
+            pileTest.push(i);
+        }
+        System.out.println("Debut de pileTest");
+        pileTest.print();
+        pileTest.pop();
+        pileTest.push(5);
+        pileTest.print();
+
     }
 }
