@@ -37,10 +37,16 @@ public class Palindrome {
         int j = input.charAt(i);
         int k = input.charAt(len);
 
-        while (j == ' ') i++;
-        while (k == ' ') len--;
+        while (j == ' ') {
+            i++;
+            j = input.charAt(i);
+        }
+        while (k == ' ') {
+            len--;
+            k = input.charAt(len);
+        }
 
-        return (j == k) && checker_recursive(getSubString(input, j++, len));
+        return (j == k) && checker_recursive(getSubString(input, j+1, len));
     }
 
     /**
@@ -75,9 +81,11 @@ public class Palindrome {
     public static String transforme_palindrome_compacte(String input) {
         int len = input.length();
         String addString = "";
+
         for (int i = 0; i <= len-1; i++) {
             while(input.charAt(i) == ' ') i++;
             String potPal = getSubString(input, i, len);
+
             if (checker(potPal)) {
                 addString = reverse(getSubString(input, 0, i));
                 break;
