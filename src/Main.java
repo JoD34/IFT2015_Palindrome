@@ -68,9 +68,6 @@ public class Main {
         *
         * */
         Pile pile = new Pile();
-        pile.push(4);
-        pile.push(5);
-        pile.push(6);
         pile.pop();
         pile.push(7);
 

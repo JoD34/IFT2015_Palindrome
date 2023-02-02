@@ -28,10 +28,14 @@ public class Pile {
      * @return l'élément (entier) éliminé.
      */
     public int pop() {
-        int popElem = this.maPile[this.longueur - 1];
-        this.maPile[this.longueur - 1] = 0;
-        this.longueur--;
-
+        int popElem = 0;
+        try {
+            popElem = this.maPile[this.longueur - 1];
+            this.maPile[this.longueur - 1] = 0;
+            this.longueur--;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Il est impossible de retirer un élément puisque la pile est vide");
+        }
         return popElem;
     }
 
